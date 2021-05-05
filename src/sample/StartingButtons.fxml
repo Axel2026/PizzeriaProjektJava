@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="anchorPane" fx:id="anchorPane" minHeight="720.0" minWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StartingButtonsController">
+   <children>
+      <Button id="showMenu" layoutX="456.0" layoutY="291.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="369.0" style="-fx-background-color: #FF8300;" text="Wyświetl Menu" textFill="#282828">
+         <font>
+            <Font name="Tw Cen MT" size="28.0" />
+         </font>
+      </Button>
+      <Button id="contactUs" layoutX="456.0" layoutY="373.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="369.0" style="-fx-background-color: #FF8300;" text="Skontaktuj się z nami" textFill="#282828">
+         <font>
+            <Font name="Tw Cen MT" size="28.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
