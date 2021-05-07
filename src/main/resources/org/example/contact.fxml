@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ContactController">
+    <children>
+        <TextField id="emailText" fx:id="emailText" alignment="TOP_LEFT" layoutX="142.0" layoutY="304.0" prefHeight="257.0" prefWidth="1039.0" promptText="Napisz wiadomość...">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </TextField>
+        <Button id="previous" fx:id="previous" alignment="CENTER" layoutX="44.0" layoutY="642.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Powrót" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="1127.0" AnchorPane.topAnchor="642.0">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button id="sendBut" fx:id="sendBut" alignment="CENTER" layoutX="1126.0" layoutY="642.0" onAction="#sendEmail" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Wyślij">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <TextField id="emailSubject" fx:id="emailSubject" alignment="TOP_LEFT" layoutX="142.0" layoutY="187.0" prefHeight="51.0" prefWidth="1039.0" promptText="Temat">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </TextField>
+    </children>
+</AnchorPane>

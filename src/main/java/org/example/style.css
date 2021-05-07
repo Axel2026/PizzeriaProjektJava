@@ -2,3 +2,20 @@
     -fx-background-image:url("../images/Background.jpg");
     -fx-background-size:100% 100%;
 }
+
+#showMenu, #contactUs{
+    -fx-background-radius: 35px;
+    -fx-border-radius: 22px;
+    -fx-border-width: 5px;
+    -fx-border-style: solid;
+    -fx-border-color: #292929;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+#showMenu:hover,  #contactUs:hover{
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 35px;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
