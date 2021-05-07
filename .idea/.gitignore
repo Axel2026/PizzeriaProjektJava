@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../:\Users\pnytk\IdeaProjects\PizzeriaProjektJava\.idea/dataSources/
+/../../../../../:\git_reps\PizzeriaProjektJava\PizzeriaProjekt\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
