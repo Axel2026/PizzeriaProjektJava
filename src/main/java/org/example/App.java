@@ -8,11 +8,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class App extends Application {
 
     private static Scene scene;
     private static Connect connect;
+    private static List<String> pizzaIndex;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -40,6 +42,14 @@ public class App extends Application {
 
     public static Connect getConnect(){
         return connect;
+    }
+
+    public static void setPizzaIndex(List<String> indexes){
+        pizzaIndex = indexes;
+    }
+
+    public static List<String> getPizzaIndex(){
+        return pizzaIndex;
     }
 
     public static void main(String[] args) {
