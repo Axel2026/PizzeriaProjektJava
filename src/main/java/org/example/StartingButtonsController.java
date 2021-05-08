@@ -7,6 +7,7 @@ import java.io.IOException;
 public class StartingButtonsController {
 
     public void showMenu() throws IOException {
+        App.setConnect(new Connect());
         App.setRoot("menu");
     }
 
