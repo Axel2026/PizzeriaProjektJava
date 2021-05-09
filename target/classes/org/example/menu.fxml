@@ -15,17 +15,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="order" fx:id="order" alignment="CENTER" layoutX="1124.0" layoutY="642.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Zamów!">
+      <Button id="order" fx:id="order" alignment="CENTER" layoutX="1124.0" layoutY="642.0" onAction="#order" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Zamów!">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <ScrollPane layoutX="53.0" layoutY="47.0" prefHeight="575.0" prefWidth="678.0" style="-fx-background: #343434;">
         <content>
-            <GridPane id="pizzaMenu" fx:id="pizzaMenu" prefHeight="90.0" prefWidth="339.0" style="-fx-background-color: #343434;">
+            <GridPane id="pizzaMenu" fx:id="pizzaMenu" prefHeight="102.0" prefWidth="676.0" style="-fx-background-color: #343434;">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="286.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="0.0" prefWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="0.0" prefWidth="340.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="0.0" prefWidth="327.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,10 +37,10 @@
       </ScrollPane>
       <ScrollPane layoutX="815.0" layoutY="47.0" prefHeight="305.0" prefWidth="421.0" style="-fx-background: #343434;">
         <content>
-            <GridPane id="cart" fx:id="cart" style="-fx-background-color: #343434;">
+            <GridPane id="cart" fx:id="cart" prefHeight="88.0" prefWidth="419.0" style="-fx-background-color: #343434;">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="380.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="1.0" prefWidth="39.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -50,7 +50,12 @@
             </GridPane>
         </content>
       </ScrollPane>
-      <Button id="addToCart" fx:id="order1" alignment="CENTER" layoutX="817.0" layoutY="390.0" onAction="#addToCart" prefHeight="61.0" prefWidth="421.0" style="-fx-background-color: #00ff1a;" text="Dodaj do koszyka">
+      <Button id="addToCart" fx:id="addToCart" alignment="CENTER" layoutX="815.0" layoutY="390.0" onAction="#addToCart" prefHeight="61.0" prefWidth="421.0" style="-fx-background-color: #00ff1a;" text="Dodaj do koszyka">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button id="clearCart" fx:id="clearCart" alignment="CENTER" layoutX="815.0" layoutY="476.0" onAction="#clearCart" prefHeight="61.0" prefWidth="421.0" style="-fx-background-color: RED;" text="Wyczyść koszyk" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

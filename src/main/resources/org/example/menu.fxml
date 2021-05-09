@@ -15,7 +15,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="order" fx:id="order" alignment="CENTER" layoutX="1124.0" layoutY="642.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Zamów!">
+      <Button id="order" fx:id="order" alignment="CENTER" layoutX="1124.0" layoutY="642.0" onAction="#order" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Zamów!">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

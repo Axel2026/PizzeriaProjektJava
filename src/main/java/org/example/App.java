@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +14,8 @@ public class App extends Application {
     private static Scene scene;
     private static Connect connect;
     private static List<String> pizzaIndex;
+    private static float orderSum;
+    private static String city, street, houseNumber, cardNumber, cvv;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,19 +37,67 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void setConnect(Connect c){
+    public static void setConnect(Connect c) {
         connect = c;
     }
 
-    public static Connect getConnect(){
+    public static Connect getConnect() {
         return connect;
     }
 
-    public static void setPizzaIndex(List<String> indexes){
+    public static void setCity(String c) {
+        city = c;
+    }
+
+    public static String getCity() {
+        return city;
+    }
+
+    public static void setStreet(String s) {
+        street = s;
+    }
+
+    public static String getStreet() {
+        return street;
+    }
+
+    public static void setHouseNumber(String hn) {
+        houseNumber = hn;
+    }
+
+    public static String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public static void setCardNumber(String cn) {
+        cardNumber = cn;
+    }
+
+    public static String getCardNumber() {
+        return cardNumber;
+    }
+
+    public static void setCvv(String cv) {
+        cvv = cv;
+    }
+
+    public static String getCvv() {
+        return cvv;
+    }
+
+    public static void setOrderSum(float sum) {
+        orderSum = sum;
+    }
+
+    public static float getOrderSum() {
+        return orderSum;
+    }
+
+    public static void setPizzaIndex(List<String> indexes) {
         pizzaIndex = indexes;
     }
 
-    public static List<String> getPizzaIndex(){
+    public static List<String> getPizzaIndex() {
         return pizzaIndex;
     }
 

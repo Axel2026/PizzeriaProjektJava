@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,16 +25,24 @@ public class MenuController implements Initializable {
     private List<CheckBox> arrCb = new ArrayList<>();
     private float sum;
 
-    @FXML
-    public void goBack() throws IOException {
-        App.setRoot("startingButtons");
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showMenu();
     }
 
+    @FXML
+    public void goBack() throws IOException {
+        App.setRoot("startingButtons");
+    }
+
+    @FXML
+    public void order() throws IOException {
+        if (pizzaIndex.size() > 0 && sum > 0) {
+            App.setRoot("deliveryAndPayment");
+        }
+    }
+
+    @FXML
     public void showMenu() {
         products = App.getConnect().getTableContent("roznosci", "produkty");
         pizzaMenu.getChildren().clear();
@@ -72,6 +81,7 @@ public class MenuController implements Initializable {
         }
     }
 
+    @FXML
     public void addToCart() {
         cart.getChildren().clear();
         cart.setHgap(100);
@@ -86,24 +96,28 @@ public class MenuController implements Initializable {
             arrCb.get(i).setSelected(false);
         }
 
-        for (int i = 0; i < pizzaIndex.size(); i++) {
-            sum += Float.parseFloat(products[Integer.parseInt(pizzaIndex.get(i))][4]);
-        }
+        if (pizzaIndex.size() > 0) {
+            for (int i = 0; i < pizzaIndex.size(); i++) {
+                sum += Float.parseFloat(products[Integer.parseInt(pizzaIndex.get(i))][4]);
+            }
+           Label label = new Label("Suma: " + sum + "zł.");
+            label.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+            label.setTextFill(Color.color(1, 0.65, 0));
+            cart.addRow(1, label);
 
-        Label label = new Label("Suma: " + sum + "zł.");
-        label.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
-        label.setTextFill(Color.color(1, 0.65, 0));
-        cart.addRow(1, label);
+            for (int i = 0; i < pizzaIndex.size(); i++) {
+                Label label1 = new Label(products[Integer.parseInt(pizzaIndex.get(i))][2]);
+                label1.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
+                label1.setTextFill(Color.color(1, 1, 1));
+                cart.addRow(i + 3, label1);
+            }
 
-        for (int i = 0; i < pizzaIndex.size(); i++) {
-            Label label1 = new Label(products[Integer.parseInt(pizzaIndex.get(i))][2]);
-            label1.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
-            label1.setTextFill(Color.color(1, 1, 1));
-            cart.addRow(i + 3, label1);
+            App.setOrderSum(sum);
+            App.setPizzaIndex(pizzaIndex);
         }
-        App.setPizzaIndex(pizzaIndex);
     }
 
+    @FXML
     public void clearCart() {
         cart.getChildren().clear();
         sum = 0;
