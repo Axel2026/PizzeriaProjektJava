@@ -10,7 +10,7 @@
 
 <AnchorPane id="anchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DeliveryAndPaymentController">
    <children>
-      <AnchorPane id="methodsBackground" layoutX="92.0" layoutY="63.0" prefHeight="552.0" prefWidth="1096.0" style="-fx-background-color: #343434;">
+      <AnchorPane id="methodsBackground" layoutX="92.0" layoutY="84.0" opacity="0.98" prefHeight="552.0" prefWidth="1096.0" style="-fx-background-color: #343434;">
          <children>
             <ComboBox fx:id="comboBoxDelivery" layoutX="14.0" layoutY="72.0" onAction="#comboActionDelivery" prefHeight="27.0" prefWidth="209.0" promptText="Sposób dostawy">
                <items>
@@ -36,12 +36,12 @@
             <TextField id="houseNumber" fx:id="houseNumber" layoutX="14.0" layoutY="358.0" prefHeight="38.0" prefWidth="268.0" promptText="Numer domu/mieszkania" visible="false" />
          </children>
       </AnchorPane>
-      <Button id="previous" fx:id="previous" alignment="CENTER" layoutX="54.0" layoutY="646.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Powrót" textFill="#343434">
+      <Button id="previous" fx:id="previous" alignment="CENTER" layoutX="38.0" layoutY="646.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Powrót" textFill="#343434">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="summary" fx:id="summary" alignment="CENTER" layoutX="1134.0" layoutY="652.0" onAction="#goToSummary" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Dalej" textFill="#343434">
+      <Button id="summary" fx:id="summary" alignment="CENTER" layoutX="1134.0" layoutY="646.0" onAction="#goToSummary" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #00ff1a;" text="Dalej" textFill="#343434">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

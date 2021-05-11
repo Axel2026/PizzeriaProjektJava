@@ -39,6 +39,8 @@ public class MenuController implements Initializable {
     public void order() throws IOException {
         if (pizzaIndex.size() > 0 && sum > 0) {
             App.setRoot("deliveryAndPayment");
+        }else{
+            App.getConnect().showNotification("Pizzeria Na okrągło", "Koszyk jest pusty");
         }
     }
 
@@ -100,7 +102,7 @@ public class MenuController implements Initializable {
             for (int i = 0; i < pizzaIndex.size(); i++) {
                 sum += Float.parseFloat(products[Integer.parseInt(pizzaIndex.get(i))][4]);
             }
-           Label label = new Label("Suma: " + sum + "zł.");
+            Label label = new Label("Suma: " + sum + "zł.");
             label.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
             label.setTextFill(Color.color(1, 0.65, 0));
             cart.addRow(1, label);

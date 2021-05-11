@@ -29,12 +29,26 @@ public class DeliveryAndPaymentController implements Initializable {
 
     @FXML
     public void goToSummary() throws IOException {
-        App.setCity(city.getText());
-        App.setStreet(street.getText());
-        App.setHouseNumber(houseNumber.getText());
-        App.setCardNumber(cardNumber.getText());
-        App.setCvv(cvv.getText());
-        App.setRoot("summary");
+        if (comboBoxPayment.getValue() != null && comboBoxDelivery.getValue() != null &&
+                (((comboBoxPayment.getValue().equals("Karta kredytowa") || comboBoxPayment.getValue().equals("Karta debetowa")) &&
+                        validateCreditCardNumber(cardNumber.getText())) || comboBoxPayment.getValue().equals("W lokalu"))) {
+            if (comboBoxDelivery.getValue().equals("Odbiór w lokalu") ||
+                    (comboBoxDelivery.getValue().equals("Dowóz") && !city.getText().equals("") && !street.getText().equals("") &&
+                            !houseNumber.getText().equals(""))) {
+                App.setPaymentMethod(comboBoxPayment.getValue().toString());
+                App.setDeliveryMethod(comboBoxDelivery.getValue().toString());
+                App.setCity(city.getText());
+                App.setStreet(street.getText());
+                App.setHouseNumber(houseNumber.getText());
+                App.setCardNumber(cardNumber.getText());
+                App.setCvv(cvv.getText());
+                App.setRoot("summary");
+            }else{
+                App.getConnect().showNotification("Pizzeria Na okrągło", "Proszę wypełnić wszystkie pola!");
+            }
+        }else{
+            App.getConnect().showNotification("Pizzeria Na okrągło", "Proszę wypełnić wszystkie pola!");
+        }
     }
 
     @FXML

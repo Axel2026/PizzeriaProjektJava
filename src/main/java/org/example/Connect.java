@@ -15,8 +15,6 @@ import java.util.*;
 import java.lang.String;
 
 public class Connect {
-    private List dane = new ArrayList();
-
     private String driver;
     private String host;
     private String port;
@@ -43,14 +41,6 @@ public class Connect {
 
     public Connection getConnection() {
         return (connection);
-    }
-
-    public void close() {
-        try {
-            connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
     }
 
     public Connection makeConnection() {

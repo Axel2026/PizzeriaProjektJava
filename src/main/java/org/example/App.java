@@ -15,7 +15,7 @@ public class App extends Application {
     private static Connect connect;
     private static List<String> pizzaIndex;
     private static float orderSum;
-    private static String city, street, houseNumber, cardNumber, cvv;
+    private static String city, street, houseNumber, cardNumber, cvv = null, deliveryMethod, paymentMethod;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -91,6 +91,22 @@ public class App extends Application {
 
     public static float getOrderSum() {
         return orderSum;
+    }
+
+    public static void setDeliveryMethod(String delivery) {
+        deliveryMethod = delivery;
+    }
+
+    public static String getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public static void setPaymentMethod(String payment) {
+        paymentMethod = payment;
+    }
+
+    public static String getPaymentMethod() {
+        return paymentMethod;
     }
 
     public static void setPizzaIndex(List<String> indexes) {
