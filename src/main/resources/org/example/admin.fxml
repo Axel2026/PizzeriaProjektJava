@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.AdminController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane id="anchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdminController">
+   <children>
+      <ScrollPane layoutX="384.0" layoutY="53.0" prefHeight="617.0" prefWidth="843.0" style="-fx-background: #343434;">
+         <content>
+            <GridPane id="adminGridPane" fx:id="adminGridPane" style="-fx-background-color: #343434;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <PasswordField id="passwordField" fx:id="passwordField" layoutX="83.0" layoutY="280.0" prefHeight="25.0" prefWidth="199.0" />
+      <Text fill="WHITE" layoutX="82.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło pracownika">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Button id="showOrdersButton" fx:id="showOrdersButton" alignment="CENTER" layoutX="114.0" layoutY="341.0" onAction="#showOrdersButton" prefHeight="40.0" prefWidth="137.0" style="-fx-background-color: #00ff1a;" text="Pokaż zamówienia" textFill="#343434">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button id="previous" fx:id="previous" alignment="CENTER" layoutX="48.0" layoutY="656.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Powrót" textFill="#343434">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("startingButtons"), 1280, 720);
-        stage.setTitle("Na Okrągło");
+        stage.setTitle("Pizzeria Peperoni");
         stage.setScene(scene);
         File file = new File("src\\main\\java\\org\\example\\style.css");
         scene.getStylesheets().clear();

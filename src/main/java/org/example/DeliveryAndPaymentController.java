@@ -2,25 +2,18 @@ package org.example;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DeliveryAndPaymentController implements Initializable {
+public class DeliveryAndPaymentController {
 
     @FXML
     public ComboBox comboBoxDelivery, comboBoxPayment;
     public TextField cardNumber, cvv, city, street, houseNumber;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
 
     @FXML
     public void goBack() throws IOException {
@@ -43,11 +36,11 @@ public class DeliveryAndPaymentController implements Initializable {
                 App.setCardNumber(cardNumber.getText());
                 App.setCvv(cvv.getText());
                 App.setRoot("summary");
-            }else{
-                App.getConnect().showNotification("Pizzeria Na okrągło", "Proszę wypełnić wszystkie pola!");
+            } else {
+                App.getConnect().showNotification("Pizzeria Peperoni", "Proszę wypełnić wszystkie pola!");
             }
-        }else{
-            App.getConnect().showNotification("Pizzeria Na okrągło", "Proszę wypełnić wszystkie pola!");
+        } else {
+            App.getConnect().showNotification("Pizzeria Peperoni", "Proszę wypełnić wszystkie pola!");
         }
     }
 
@@ -62,7 +55,6 @@ public class DeliveryAndPaymentController implements Initializable {
             street.setVisible(true);
             houseNumber.setVisible(true);
         }
-        //validateCreditCardNumber("4155 2798 6045 7201");
     }
 
     @FXML

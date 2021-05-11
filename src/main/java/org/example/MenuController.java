@@ -39,8 +39,8 @@ public class MenuController implements Initializable {
     public void order() throws IOException {
         if (pizzaIndex.size() > 0 && sum > 0) {
             App.setRoot("deliveryAndPayment");
-        }else{
-            App.getConnect().showNotification("Pizzeria Na okrągło", "Koszyk jest pusty");
+        } else {
+            App.getConnect().showNotification("Pizzeria Peperoni", "Koszyk jest pusty");
         }
     }
 

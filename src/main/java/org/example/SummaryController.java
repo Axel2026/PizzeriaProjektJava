@@ -39,10 +39,10 @@ public class SummaryController implements Initializable {
                 App.getHouseNumber(), App.getPizzaIndex().toArray(new String[0]), App.getOrderSum());
 
         if (App.getDeliveryMethod().equals("Odbiór w lokalu")) {
-            App.getConnect().showNotification("Pizzeria Na okrągło", "Zamówienie zostało złożone!\nCzas wykonania zamówienia to około: " +
+            App.getConnect().showNotification("Pizzeria Peperoni", "Zamówienie zostało złożone!\nCzas wykonania zamówienia to około: " +
                     App.getPizzaIndex().size() * 15 + "min.");
         } else {
-            App.getConnect().showNotification("Pizzeria Na okrągło", "Zamówienie zostało złożone!\nCzas oczekiwania to około: " +
+            App.getConnect().showNotification("Pizzeria Peperoni", "Zamówienie zostało złożone!\nCzas oczekiwania to około: " +
                     App.getPizzaIndex().size() * 20 + "min.");
         }
         App.setRoot("menu");
