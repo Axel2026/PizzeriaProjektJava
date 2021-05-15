@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.connection.Connect;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,14 +17,14 @@ public class App extends Application {
     private static Connect connect;
     private static List<String> pizzaIndex;
     private static float orderSum;
-    private static String city, street, houseNumber, cardNumber, cvv = null, deliveryMethod, paymentMethod;
+    private static String city, street, houseNumber, cardNumber, cvv, deliveryMethod, paymentMethod;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("startingButtons"), 1280, 720);
         stage.setTitle("Pizzeria Peperoni");
         stage.setScene(scene);
-        File file = new File("src\\main\\java\\org\\example\\style.css");
+        File file = new File("src\\main\\java\\org\\example\\styling\\style.css");
         scene.getStylesheets().clear();
         scene.getStylesheets().add("file:///" + file.getAbsolutePath().replace("\\", "/"));
         stage.show();

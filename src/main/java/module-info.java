@@ -7,4 +7,6 @@ module org.example {
 
     opens org.example to javafx.fxml;
     exports org.example;
+    exports org.example.connection;
+    opens org.example.connection to javafx.fxml;
 }

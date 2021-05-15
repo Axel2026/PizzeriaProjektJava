@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SummaryController">
+<AnchorPane id="anchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SummaryController">
     <children>
         <Button id="previous" fx:id="previous" alignment="CENTER" layoutX="38.0" layoutY="646.0" onAction="#goBack" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #FF8300;" text="Powrót">
             <font>

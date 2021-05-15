@@ -1,10 +1,10 @@
 #anchorPane {
-    -fx-background-image: url("../images/Background.jpg");
+    -fx-background-image: url("../../images/Background.jpg");
     -fx-background-size: 100% 100%;
 }
 
 #adminButton {
-    -fx-graphic: url('../images/employee.png') no-repeat;
+    -fx-graphic: url('../../images/employee.png') no-repeat;
     -fx-max-width: 50px;
     -fx-max-height: 50px;
 }
@@ -19,8 +19,13 @@
 }
 
 #imgLogo {
-    -fx-background-image: url("../images/Logo.png");
+    -fx-background-image: url("../../images/Logo.png");
     -fx-background-size: 100% 100%;
+    -fx-border-color: #d9b112;
+    -fx-border-width: 2px 2px 2px 2px
+}
+
+#contactPane{
     -fx-border-color: #d9b112;
     -fx-border-width: 2px 2px 2px 2px
 }

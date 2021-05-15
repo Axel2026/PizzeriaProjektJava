@@ -1,4 +1,4 @@
-package org.example;
+package org.example.connection;
 
 import javafx.geometry.Pos;
 import javafx.util.Duration;

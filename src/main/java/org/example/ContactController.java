@@ -3,6 +3,7 @@ package org.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import org.example.connection.Connect;
 
 import java.io.IOException;
 
