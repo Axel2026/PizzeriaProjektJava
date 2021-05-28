@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

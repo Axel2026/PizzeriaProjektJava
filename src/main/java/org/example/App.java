@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.connection.Connect;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +13,8 @@ import java.util.List;
 public class App extends Application {
 
     private static Scene scene;
-    private static Connect connect;
+    private static Connect connect = new Connect();
+    private static String[][] products;
     private static List<String> pizzaIndex;
     private static float orderSum;
     private static String city, street, houseNumber, cardNumber, cvv, deliveryMethod, paymentMethod;
@@ -117,6 +117,11 @@ public class App extends Application {
 
     public static List<String> getPizzaIndex() {
         return pizzaIndex;
+    }
+
+    public static String getPizzaName(String pizzaIndex){
+        products = App.getConnect().getTableContent("roznosci", "produkty");
+        return products[Integer.parseInt(pizzaIndex)][2];
     }
 
     public static void main(String[] args) {

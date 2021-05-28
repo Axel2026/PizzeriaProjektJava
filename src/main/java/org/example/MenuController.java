@@ -19,7 +19,7 @@ public class MenuController implements Initializable {
     @FXML
     public GridPane pizzaMenu;
     public GridPane cart;
-    private String[][] products;
+    private static String[][] products;
     private List<String> pizzaIndex = new ArrayList<String>();
     private CheckBox checkBox;
     private List<CheckBox> arrCb = new ArrayList<>();

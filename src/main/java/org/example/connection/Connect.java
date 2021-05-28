@@ -3,7 +3,6 @@ package org.example.connection;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -46,9 +45,7 @@ public class Connect {
     public Connection makeConnection() {
         try {
             Class.forName(driver);
-            System.out.println(url + " " + user + " " + pass);
             Connection connection = DriverManager.getConnection(url, user, pass);
-            System.out.println("Połączono z bazą\n");
             return (connection);
 
         } catch (ClassNotFoundException cnfe) {
@@ -116,12 +113,17 @@ public class Connect {
         }
     }
 
-    public String[][] getTableContent(String nazwaBazy, String nazwatabeli) {
+    public String[][] getTableContent(String nazwaBazy, String nazwaTabeli) {
         try {
             int row = 0;
             Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = stmt.executeQuery("select * from " + nazwaBazy + "." + nazwatabeli);
+            ResultSet rs;
+            if(nazwaTabeli.equals("produkty")){
+                rs = stmt.executeQuery("select * from " + nazwaBazy + "." + nazwaTabeli + " ORDER BY index_produktu");
+            }else{
+                rs = stmt.executeQuery("select * from " + nazwaBazy + "." + nazwaTabeli);
+            }
             int numCols = rs.getMetaData().getColumnCount();
             int rowCount = rs.last() ? rs.getRow() : 0;
             rs.beforeFirst();
@@ -137,6 +139,7 @@ public class Connect {
             setNumCols(numCols);
             setNumRows(row);
         } catch (Exception e) {
+            System.out.println(e);
         }
         return arr;
     }
