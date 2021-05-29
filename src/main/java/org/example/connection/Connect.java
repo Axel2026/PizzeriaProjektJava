@@ -3,6 +3,7 @@ package org.example.connection;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -79,7 +80,6 @@ public class Connect {
                             return new PasswordAuthentication(username, password);
                         }
                     });
-
             try {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("patryknytko33189@gmail.com"));
@@ -113,17 +113,12 @@ public class Connect {
         }
     }
 
-    public String[][] getTableContent(String nazwaBazy, String nazwaTabeli) {
+    public String[][] getTableContent(String schemaName, String tableName) {
         try {
             int row = 0;
             Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs;
-            if(nazwaTabeli.equals("produkty")){
-                rs = stmt.executeQuery("select * from " + nazwaBazy + "." + nazwaTabeli + " ORDER BY index_produktu");
-            }else{
-                rs = stmt.executeQuery("select * from " + nazwaBazy + "." + nazwaTabeli);
-            }
+            ResultSet rs = stmt.executeQuery("select * from " + schemaName + "." + tableName);
             int numCols = rs.getMetaData().getColumnCount();
             int rowCount = rs.last() ? rs.getRow() : 0;
             rs.beforeFirst();

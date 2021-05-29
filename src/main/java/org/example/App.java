@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.connection.Connect;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -119,7 +120,7 @@ public class App extends Application {
         return pizzaIndex;
     }
 
-    public static String getPizzaName(String pizzaIndex){
+    public static String getPizzaName(String pizzaIndex) {
         products = App.getConnect().getTableContent("roznosci", "produkty");
         return products[Integer.parseInt(pizzaIndex)][2];
     }
