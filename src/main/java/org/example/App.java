@@ -20,6 +20,11 @@ public class App extends Application {
     private static float orderSum;
     private static String city, street, houseNumber, cardNumber, cvv, deliveryMethod, paymentMethod;
 
+    /**
+     * Metoda ladujaca plik fxml, ustawiajaca rozmiar okna, tytul oraz plik css
+     * @param stage stage na ktorym ustawiana bedzie scena oraz tytul
+     */
+
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("startingButtons"), 1280, 720);
@@ -31,9 +36,22 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Metoda uzywajaca loadFXML do ladowania pliku fxml
+     * @param fxml nazwa pliku fxml, ktory chcemy zaladowac
+     * @see {@link #loadFXML(String)}
+     */
+
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
+
+    /**
+     * Metoda tworzaca nowa zmienna typu FXMLLoader
+     * z podana jako argument sciezka do pliku fxml
+     * @param fxml nazwa pliku fxml, ktory chcemy zaladowac
+     * @return zaladowanie pliku fxml
+     */
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
@@ -119,6 +137,13 @@ public class App extends Application {
     public static List<String> getPizzaIndex() {
         return pizzaIndex;
     }
+
+    /**
+     * Metoda zwracajaca nazwe pizzy z konkretnego
+     * indexu pobranej z bazy tabeli
+     * @param pizzaIndex index pizzy, ktorej nazwe chcemy odczytac
+     * @return nazwa pizzy
+     */
 
     public static String getPizzaName(String pizzaIndex) {
         products = App.getConnect().getTableContent("roznosci", "produkty");

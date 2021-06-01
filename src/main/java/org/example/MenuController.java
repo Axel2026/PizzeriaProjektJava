@@ -25,15 +25,31 @@ public class MenuController implements Initializable {
     private List<CheckBox> arrCb = new ArrayList<>();
     private float sum;
 
+    /**
+     * Metoda korzystajaca z interfejsu Initializable
+     * wywoluje funkcje showMenu() od razu po zainicjalizowaniu sceny
+     * @param location  lokalizacja sciezki relatywnej do obiektu roota
+     * @param resources zasoby potrzebne do znalezienia lokazliacji obiektu roota
+     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showMenu();
     }
 
+    /**
+     * Obsluguje przycisk goBack,
+     * ustawia uzywany plik fxml
+     */
+
     @FXML
     public void goBack() throws IOException {
         App.setRoot("startingButtons");
     }
+
+    /**
+     * Metoda ladujaca nowa scene jesli koszyk nie jest pusty
+     */
 
     @FXML
     public void order() throws IOException {
@@ -43,6 +59,10 @@ public class MenuController implements Initializable {
             App.getConnect().showNotification("Pizzeria Peperoni", "Koszyk jest pusty");
         }
     }
+
+    /**
+     * Metoda wyswietlajaca menu pizzerii, pobierajac produkty z bazy danych
+     */
 
     @FXML
     public void showMenu() {
@@ -83,6 +103,11 @@ public class MenuController implements Initializable {
         }
     }
 
+    /**
+     * Metoda dodajaca zaznaczone produkty do koszyka wyswietlanego w prawej czesci sceny,
+     * liczona jest rowniez suma produktow
+     */
+
     @FXML
     public void addToCart() {
         cart.getChildren().clear();
@@ -118,6 +143,10 @@ public class MenuController implements Initializable {
             App.setPizzaIndex(pizzaIndex);
         }
     }
+
+    /**
+     * Metoda czyszczaca koszyk
+     */
 
     @FXML
     public void clearCart() {

@@ -14,6 +14,10 @@ import java.sql.ResultSet;
 import java.util.*;
 import java.lang.String;
 
+/**
+ * Klasa Connect obsluguje polaczenie programu z baza danych
+ */
+
 public class Connect {
     private String driver;
     private String host;
@@ -27,6 +31,12 @@ public class Connect {
     private int numCols;
     private int numRows;
 
+    /**
+     * Konstruktor klasy przypisuje do zmiennych wartosci pozwalajce polaczyc sie z
+     * baza danych oraz uzywa metody makeConnection() w celu nawiazania polaczenia
+     * @see #makeConnection
+     */
+
     public Connect() {
         driver = "org.postgresql.Driver";
         host = "195.150.230.210";
@@ -39,9 +49,20 @@ public class Connect {
         connection = makeConnection();
     }
 
+    /**
+     * Zwraca zmienna typu Connection w celu sprawdzenia polaczenia z baza
+     * @return zmienna, do ktorej przypisana zostala metoda makeConnection()
+     */
+
     public Connection getConnection() {
         return (connection);
     }
+
+    /**
+     * Metoda nawiazujaca polaczenie z baza uzywajac zmiennych przypisanych w konstruktorze,
+     * wypisuje bledy nawiazywania polaczenia
+     * @return zmienna typu connection lub null, kiedy wystapi blad
+     */
 
     public Connection makeConnection() {
         try {
@@ -59,6 +80,16 @@ public class Connect {
             return (null);
         }
     }
+
+    /**
+     * Metoda sluzaca do wysylania emaila. Sprawdza poprawnosc emaila uzywajac metody statycznej
+     * emailCheck, jesli ta zwroci True, to metoda wysyla email na podany adres korzystajac z konta,
+     * do ktorego dane zostaly wczesniej podane
+     * @param email adres email, na ktory wysylany bedzie email
+     * @param subject temat emaila
+     * @param text wiadomosc email
+     * @see #emailCheck(String)
+     */
 
     public static void sendEmailStatic(String email, String text, String subject) {
 
@@ -103,6 +134,13 @@ public class Connect {
 
     }
 
+    /**
+     * Metoda sluzaca do sprawdzania poprawnosci emaila uzywajac zmiennej regex
+     * @param username adres email, ktory chcemy sprawdzic
+     * @return True, jesli email jest prawidlowy, False jesli jest nieprawidlowy
+     * @see #sendEmailStatic(String, String, String)
+     */
+
     public static boolean emailCheck(String username) {
         if (username == null) {
             System.out.println("Podano pustego emaila");
@@ -112,6 +150,14 @@ public class Connect {
             return username.matches(regex);
         }
     }
+
+    /**
+     * Metoda sluzaca do pobrania zawartosci danej tabeli z bazy,
+     * jesli to sie nie uda, to wypisywany jest blad w konsoli
+     * @param schemaName nazwa schematu tabeli, z ktorej chcemy pobrac zawartosc
+     * @param tableName nazwa tabeli, z ktorej chcemy pobrac zawartosc
+     * @return tablica 2wymiarowa z pobranymi danymi
+     */
 
     public String[][] getTableContent(String schemaName, String tableName) {
         try {
@@ -139,6 +185,12 @@ public class Connect {
         return arr;
     }
 
+    /**
+     * Metoda sluzaca do wyswietlania powiadomien na ekranie
+     * @param title tytul powiadomienia
+     * @param text tresc powiaodmienia
+     */
+
     public void showNotification(String title, String text) {
         Notifications notification = Notifications.create();
         notification.title(title);
@@ -148,17 +200,37 @@ public class Connect {
         notification.show();
     }
 
+    /**
+     * Ustawia ilosc kolumn pobieranej tabeli
+     * @param numCols ilosc kolumn
+     */
+
     public void setNumCols(int numCols) {
         this.numCols = numCols;
     }
+
+    /**
+     * Ustawia ilosc wierszy pobieranej tabeli
+     * @param numRows ilosc wierszy
+     */
 
     public void setNumRows(int numRows) {
         this.numRows = numRows;
     }
 
+    /**
+     * Zwraca ilosc kolumn pobranej bazy
+     * @return numCols ilosc kolumn
+     */
+
     public int getNumCols() {
         return numCols;
     }
+
+    /**
+     * Zwraca ilosc wierszy pobranej bazy
+     * @return numRows ilosc wierszy
+     */
 
     public int getNumRows() {
         return numRows;

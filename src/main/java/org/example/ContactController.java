@@ -12,10 +12,20 @@ public class ContactController {
     public TextField emailText;
     public TextField emailSubject;
 
+    /**
+     * Obsluguje przycisk goBack,
+     * ustawia uzywany plik fxml
+     */
+
     @FXML
     public void goBack() throws IOException {
         App.setRoot("startingButtons");
     }
+
+    /**
+     * Metoda wysylajaca email, uzywajac zczytanych z pol danych,
+     * wyswietla powiadomienie o wyslaniu
+     */
 
     @FXML
     public void sendEmail() {

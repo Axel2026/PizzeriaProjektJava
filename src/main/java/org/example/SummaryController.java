@@ -20,16 +20,33 @@ public class SummaryController implements Initializable {
     private String[][] products = App.getConnect().getTableContent("roznosci", "produkty");
     public GridPane summaryGridPane;
 
+    /**
+     * Metoda korzystajaca z interfejsu Initializable
+     * wywoluje funkcje showProductSummary() oraz showDeliverySummary od razu po zainicjalizowaniu sceny
+     * @param location  lokalizacja sciezki relatywnej do obiektu roota
+     * @param resources zasoby potrzebne do znalezienia lokazliacji obiektu roota
+     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showProductSummary();
         showDeliverySummary();
     }
 
+    /**
+     * Obsluguje przycisk goBack,
+     * ustawia uzywany plik fxml
+     */
+
     @FXML
     public void goBack() throws IOException {
         App.setRoot("deliveryAndPayment");
     }
+
+    /**
+     * Metoda wyswietlajaca powiadomienia o zamowieniu
+     * oraz przechodzaca do innego ekranu
+     */
 
     @FXML
     public void order() throws IOException {
@@ -46,6 +63,20 @@ public class SummaryController implements Initializable {
         }
         App.setRoot("menu");
     }
+
+    /**
+     * Metoda wpisujaca dane do bazy, wykorzystujaca wczesniej utworzone zapytanie,
+     * aby zapobiec wstrzyknieciu przez uzytkownika
+     * @param cardNum numer karty
+     * @param city nazwa miasta
+     * @param cvv numer cvv
+     * @param deliveryMethod metoda dostawy
+     * @param houseNumber numer domu
+     * @param orderedProducts zamowione produkty
+     * @param paymentMethod metoda platnosci
+     * @param street nazwa ulicy
+     * @param sum cena zamowienia
+     */
 
     public void insertToDatabase(String paymentMethod, String deliveryMethod, String cardNum, String cvv, String city, String street,
                                  String houseNumber, String[] orderedProducts, float sum) {
@@ -70,6 +101,10 @@ public class SummaryController implements Initializable {
         }
     }
 
+    /**
+     * Metoda wyswietlajaca na ekranie zamowione produkty
+     */
+
     public void showProductSummary() {
         summaryGridPane.setHgap(100);
         summaryGridPane.setVgap(10);
@@ -86,6 +121,10 @@ public class SummaryController implements Initializable {
             summaryGridPane.addRow(i + 2, label);
         }
     }
+
+    /**
+     * Metoda wyswietlajaca na ekranie informacje o dostawie oraz platnosci
+     */
 
     public void showDeliverySummary() {
 

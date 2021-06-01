@@ -14,10 +14,21 @@ public class DeliveryAndPaymentController {
     public ComboBox comboBoxDelivery, comboBoxPayment;
     public TextField cardNumber, cvv, city, street, houseNumber;
 
+    /**
+     * Obsluguje przycisk goBack,
+     * ustawia uzywany plik fxml
+     */
+
     @FXML
     public void goBack() throws IOException {
         App.setRoot("menu");
     }
+
+    /**
+     * Przechodzi do nastepnego ekranu, jesli spelnione sa warunki
+     * wpisanych wartosci karty kredytowej oraz adresu
+     * wartosci te zczytywane sa z pol tekstowych
+     */
 
     @FXML
     public void goToSummary() throws IOException {
@@ -43,8 +54,13 @@ public class DeliveryAndPaymentController {
         }
     }
 
+    /**
+     * Metoda ustawiajaca widocznosc pol tekstowych
+     * w zaleznosci od wybranego sposobu dostawy
+     */
+
     @FXML
-    private void comboActionDelivery(ActionEvent event) {
+    private void comboActionDelivery() {
         if (comboBoxDelivery.getValue().equals("Odbiór w lokalu")) {
             city.setVisible(false);
             street.setVisible(false);
@@ -56,8 +72,13 @@ public class DeliveryAndPaymentController {
         }
     }
 
+    /**
+     * Metoda ustawiajaca widocznosc pol tekstowych
+     * w zaleznosci od wybranego sposobu platnosci
+     */
+
     @FXML
-    private void comboActionPayment(ActionEvent event) {
+    private void comboActionPayment() {
         if (comboBoxPayment.getValue().equals("Karta kredytowa") || comboBoxPayment.getValue().equals("Karta debetowa")) {
             cvv.setVisible(true);
             cardNumber.setVisible(true);
@@ -69,6 +90,13 @@ public class DeliveryAndPaymentController {
             comboBoxDelivery.setDisable(true);
         }
     }
+
+    /**
+     * Metoda sprawdzajaca poprawnosc wprowadzonego numery karty kredytowej/debetowej
+     * Jesli odpowiada ona numerowi karty Visa, to zwracana jest wartosc True
+     * @param cardNumber numer karty, ktory chcemy sprawdzic
+     * @return True jesli numer karty jest prawidlowy, False jesli nie jest
+     */
 
     private static Boolean validateCreditCardNumber(String cardNumber) {
         String regex = "^4[0-9]{12}(?:[0-9]{3})?$";

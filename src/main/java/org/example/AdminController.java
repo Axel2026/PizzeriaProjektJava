@@ -19,10 +19,20 @@ public class AdminController {
     private String[][] ordersArray;
     private Order[] orderObjects;
 
+    /**
+     * Obsluguje przycisk goBack,
+     * ustawia uzywany plik fxml
+     */
+
     @FXML
     public void goBack() throws IOException {
         App.setRoot("startingButtons");
     }
+
+    /**
+     * Metoda wyswietlajaca na ekran zawartosc tabeli zamowienia z bazy danych,
+     * jesli pracownik poda odpowiednie haslo
+     */
 
     @FXML
     public void showOrdersButton() {
