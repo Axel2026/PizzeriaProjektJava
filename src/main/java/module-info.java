@@ -4,6 +4,7 @@ module org.example {
     requires java.mail;
     requires java.sql;
     requires org.controlsfx.controls;
+    requires javafx.web;
 
     opens org.example to javafx.fxml;
     exports org.example;

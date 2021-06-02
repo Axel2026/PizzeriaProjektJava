@@ -4,15 +4,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
-public class DeliveryAndPaymentController {
+public class DeliveryAndPaymentController{
 
     @FXML
     public ComboBox comboBoxDelivery, comboBoxPayment;
     public TextField cardNumber, cvv, city, street, houseNumber;
+    public WebView mapView;
+    private WebEngine webEngine;
+
 
     /**
      * Obsluguje przycisk goBack,
@@ -112,6 +121,16 @@ public class DeliveryAndPaymentController {
         } else {
             return false;
         }
+    }
+    /**
+     * Metoda ładująca lokalizacje restauracji na google maps
+     */
+    public void loadSite() {
+        this.webEngine = mapView.getEngine();
+        File f = new File("src/main/java/simple_map.html");
+        this.webEngine.load(f.toURI().toString());
+        System.out.println("Załadowano stronę\n");
+        mapView.setVisible(true);
     }
 }
 
