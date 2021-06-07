@@ -31,7 +31,7 @@
       <AnchorPane id="imgLogo" fx:id="imgLogo" layoutX="44.0" layoutY="14.0" prefHeight="157.0" prefWidth="161.0" />
       <AnchorPane id="contactPane" fx:id="contactPane" layoutX="945.0" layoutY="29.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #606060;">
          <children>
-            <Text fill="WHITE" layoutX="27.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ul. Warszawska 2" AnchorPane.bottomAnchor="62.482421875" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="26.521484375" AnchorPane.topAnchor="13.576171875">
+            <Text fill="WHITE" layoutX="27.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ul. Warszawska 12" AnchorPane.bottomAnchor="62.482421875" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="26.521484375" AnchorPane.topAnchor="13.576171875">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

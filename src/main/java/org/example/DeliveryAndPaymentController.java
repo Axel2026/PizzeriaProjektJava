@@ -11,10 +11,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-public class DeliveryAndPaymentController{
+public class DeliveryAndPaymentController {
 
     @FXML
     public ComboBox comboBoxDelivery, comboBoxPayment;
@@ -42,10 +43,10 @@ public class DeliveryAndPaymentController{
     @FXML
     public void goToSummary() throws IOException {
         if (comboBoxPayment.getValue() != null && comboBoxDelivery.getValue() != null &&
-                (((comboBoxPayment.getValue().equals("Karta kredytowa") || comboBoxPayment.getValue().equals("Karta debetowa")) &&
+                (((comboBoxPayment.getValue().equals("Karta kredytowa (VISA)") || comboBoxPayment.getValue().equals("Karta debetowa (VISA)")) &&
                         validateCreditCardNumber(cardNumber.getText())) || comboBoxPayment.getValue().equals("W lokalu"))) {
             if (comboBoxDelivery.getValue().equals("Odbiór w lokalu") ||
-                    (comboBoxDelivery.getValue().equals("Dowóz") && !city.getText().equals("") && !street.getText().equals("") &&
+                    (comboBoxDelivery.getValue().equals("Dowóz (cena + 10 zł)") && !city.getText().equals("") && !street.getText().equals("") &&
                             !houseNumber.getText().equals(""))) {
                 App.setPaymentMethod(comboBoxPayment.getValue().toString());
                 App.setDeliveryMethod(comboBoxDelivery.getValue().toString());
@@ -74,7 +75,7 @@ public class DeliveryAndPaymentController{
             city.setVisible(false);
             street.setVisible(false);
             houseNumber.setVisible(false);
-        } else if (comboBoxDelivery.getValue().equals("Dowóz")) {
+        } else if (comboBoxDelivery.getValue().equals("Dowóz (cena + 10 zł)")) {
             city.setVisible(true);
             street.setVisible(true);
             houseNumber.setVisible(true);
@@ -88,7 +89,7 @@ public class DeliveryAndPaymentController{
 
     @FXML
     private void comboActionPayment() {
-        if (comboBoxPayment.getValue().equals("Karta kredytowa") || comboBoxPayment.getValue().equals("Karta debetowa")) {
+        if (comboBoxPayment.getValue().equals("Karta kredytowa (VISA)") || comboBoxPayment.getValue().equals("Karta debetowa (VISA)")) {
             cvv.setVisible(true);
             cardNumber.setVisible(true);
             comboBoxDelivery.setDisable(false);
@@ -103,6 +104,7 @@ public class DeliveryAndPaymentController{
     /**
      * Metoda sprawdzajaca poprawnosc wprowadzonego numery karty kredytowej/debetowej
      * Jesli odpowiada ona numerowi karty Visa, to zwracana jest wartosc True
+     *
      * @param cardNumber numer karty, ktory chcemy sprawdzic
      * @return True jesli numer karty jest prawidlowy, False jesli nie jest
      */
@@ -122,6 +124,7 @@ public class DeliveryAndPaymentController{
             return false;
         }
     }
+
     /**
      * Metoda ładująca lokalizacje restauracji na google maps
      */

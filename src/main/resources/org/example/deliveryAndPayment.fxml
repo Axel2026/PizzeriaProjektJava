@@ -15,15 +15,15 @@
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:id="takeaway" fx:value="Odbiór w lokalu" />
-                     <String fx:id="delivery" fx:value="Dowóz" />
+                     <String fx:id="delivery" fx:value="Dowóz (cena + 10 zł)" />
                   </FXCollections>
                </items>
             </ComboBox>
             <ComboBox fx:id="comboBoxPayment" layoutX="14.0" layoutY="139.0" onAction="#comboActionPayment" prefHeight="27.0" prefWidth="209.0" promptText="Sposób płatności">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:id="creditCard" fx:value="Karta kredytowa" />
-                     <String fx:id="debitCard" fx:value="Karta debetowa" />
+                     <String fx:id="creditCard" fx:value="Karta kredytowa (VISA)" />
+                     <String fx:id="debitCard" fx:value="Karta debetowa (VISA)" />
                      <String fx:id="atPickUp" fx:value="W lokalu" />
                   </FXCollections>
                </items>
