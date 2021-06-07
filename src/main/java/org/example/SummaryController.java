@@ -19,6 +19,8 @@ public class SummaryController implements Initializable {
     @FXML
     private String[][] products = App.getConnect().getTableContent("roznosci", "produkty");
     public GridPane summaryGridPane;
+    public String city, street, houseNumber;
+    public float deliveryPrice=0;
 
     /**
      * Metoda korzystajaca z interfejsu Initializable
@@ -133,24 +135,45 @@ public class SummaryController implements Initializable {
         label.setTextFill(Color.color(1, 0.65, 0));
         summaryGridPane.addRow(1, label);
 
-        label = new Label("Miasto: " + App.getCity());
+        if (App.getCity().equals("")){
+            this.city="Warszawa";
+        }else {
+            this.city=App.getCity();
+            this.deliveryPrice=10;
+        }
+        label = new Label("Miasto: " + city);
         label.setTextFill(Color.color(1, 1, 1));
         label.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
         summaryGridPane.addRow(2, label);
 
-        label = new Label("Ulica i numer domu: " + App.getStreet() + " " + App.getHouseNumber());
+        if (App.getStreet().equals("")){
+            this.street="Warszawska";
+        }else {
+            this.street=App.getStreet();
+        }
+        if (App.getHouseNumber().equals("")){
+            this.houseNumber="12";
+        }else {
+            this.houseNumber=App.getHouseNumber();
+        }
+        label = new Label("Ulica i numer domu: " + street + " " + houseNumber);
         label.setTextFill(Color.color(1, 1, 1));
         label.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
-        summaryGridPane.addRow(3, label);
+        summaryGridPane.add(label,1,3);
 
         label = new Label("Sposób płatności: " + App.getPaymentMethod());
         label.setTextFill(Color.color(1, 1, 1));
         label.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
-        summaryGridPane.addRow(4, label);
+        summaryGridPane.add(label,1,4);
 
         label = new Label("Sposób dostawy: " + App.getDeliveryMethod());
         label.setTextFill(Color.color(1, 1, 1));
         label.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
-        summaryGridPane.addRow(5, label);
+        summaryGridPane.add(label,1,5);
+
+        label = new Label("Cena zamówienia: " + (App.getOrderSum()+deliveryPrice) + " zł ");
+        label.setTextFill(Color.color(1, 1, 1));
+        label.setStyle("-fx-font-weight: bold; -fx-font-size: 20px");
+        summaryGridPane.add(label,1,9);
     }
 }
